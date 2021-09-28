@@ -215,7 +215,6 @@ namespace MonoMod.Utils.Cil {
         public override void Emit(SRE.OpCode opcode, float arg) => Emit(IL.Create(_(opcode), arg));
         public override void Emit(SRE.OpCode opcode, double arg) => Emit(IL.Create(_(opcode), arg));
         public override void Emit(SRE.OpCode opcode, string arg) => Emit(IL.Create(_(opcode), arg));
-        public override void Emit(SRE.OpCode opcode, TypeReference arg) => Emit(IL.Create(_(opcode), arg));
         public override void Emit(SRE.OpCode opcode, Type arg) => Emit(IL.Create(_(opcode), _(arg)));
         public override void Emit(SRE.OpCode opcode, FieldInfo arg) => Emit(IL.Create(_(opcode), _(arg)));
         public override void Emit(SRE.OpCode opcode, ConstructorInfo arg) => Emit(IL.Create(_(opcode), _(arg)));
@@ -239,7 +238,8 @@ namespace MonoMod.Utils.Cil {
         public override void Emit(SRE.OpCode opcode, LocalBuilder local) => Emit(IL.Create(_(opcode), _(local)));
         public override void Emit(SRE.OpCode opcode, SignatureHelper signature) => Emit(IL.Create(_(opcode), IL.Body.Method.Module.ImportCallSite(signature)));
         public void Emit(SRE.OpCode opcode, ICallSiteGenerator signature) => Emit(IL.Create(_(opcode), IL.Body.Method.Module.ImportCallSite(signature)));
-
+        public void Emit(SRE.OpCode opcode, TypeReference arg) => Emit(IL.Create(_(opcode), arg));
+        
         private void _EmitInlineVar(OpCode opcode, int index) {
             // System.Reflection.Emit has only got (Short)InlineVar and allows index refs.
             // Mono.Cecil has also got (Short)InlineArg and requires definition refs.
