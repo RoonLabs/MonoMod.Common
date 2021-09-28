@@ -215,6 +215,7 @@ namespace MonoMod.Utils.Cil {
         public override void Emit(SRE.OpCode opcode, float arg) => Emit(IL.Create(_(opcode), arg));
         public override void Emit(SRE.OpCode opcode, double arg) => Emit(IL.Create(_(opcode), arg));
         public override void Emit(SRE.OpCode opcode, string arg) => Emit(IL.Create(_(opcode), arg));
+        public override void Emit(SRE.OpCode opcode, TypeReference arg) => Emit(IL.Create(_(opcode), arg));
         public override void Emit(SRE.OpCode opcode, Type arg) => Emit(IL.Create(_(opcode), _(arg)));
         public override void Emit(SRE.OpCode opcode, FieldInfo arg) => Emit(IL.Create(_(opcode), _(arg)));
         public override void Emit(SRE.OpCode opcode, ConstructorInfo arg) => Emit(IL.Create(_(opcode), _(arg)));
